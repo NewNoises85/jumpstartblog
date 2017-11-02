@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comment = Comment.new
-    @comment.article_id = @article.id 
+    @comment.article_id = @article.id
   end
 
   def new
@@ -21,13 +21,13 @@ class ArticlesController < ApplicationController
 
     flash.notice = "Article #{@article.title} was updated!"
 
-    redirect_to article_path(@article)
+    redirect_to articles_path(@article)
   end
 
   def destroy
     @article = Article.destroy(params[:id])
 
-    flash.notice = "Article #{@article.title} was updated!"
+    flash.notice = "Article #{@article.title} was deleted!"
 
     redirect_to articles_path
   end
